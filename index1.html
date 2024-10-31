@@ -8,92 +8,137 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
+<!--    <style>-->
+<!--        .image-side {-->
+<!--            background-image: url('assets/picture/img.icons8.png');-->
+<!--            background-size: cover;-->
+<!--            background-position: center;-->
+<!--            height: 100vh;-->
+<!--            position: relative;-->
+<!--        }-->
+<!--    </style>-->
+    <style>
+        @keyframes crush {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.9); /* Adjust the scale to "crush" the image */
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .image-side {
+            background-image: url('assets/picture/istockphoto-802742830-612x612.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            animation: crush 2s infinite; /* Apply the crush animation */
+        }
+
+        /* Center the image vertically */
+        .image-side::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            background-image: inherit;
+            background-size: inherit;
+            background-position: inherit;
+            z-index: -1; /* Behind the overlay */
+            filter: blur(-9px); /* Optional: add some blur for better effect */
+        }
+    </style>
 
 </head>
 <body>
+<section id="signInAndSignUp-sec" >
+    <div class="container-fluid vh-100">
+        <div class="row w-100 h-100">
+            <!-- Left Image Section -->
+            <div class="col-md-6 image-side d-none d-md-flex text-white d-flex flex-column justify-content-end">
+                <div class="overlay"></div>
+                <div class="text-content">
+                    <p class="text-justify ms-3 fs-5 font-size-lg"></p>
+                    <p class="text-justify ms-3 me-3 mb-5 fs-5 font-size-md"></p>
+                </div>
+            </div>
 
-<main>
-    <section id="signInAndSignUp-sec" >
-        <div class="container-fluid vh-100">
-            <div class="row w-100 h-100">
-                <!-- Left Image Section -->
-<!--                <div class="col-md-6 image-side d-none d-md-flex text-white d-flex flex-column justify-content-end">-->
-<!--                    <div class="overlay"></div>-->
-<!--                    <div class="text-content">-->
-<!--                        <p class="text-justify ms-3 fs-5 font-size-lg">Crop Monitoring System</p>-->
-<!--                        <p class="text-justify ms-3 me-3 mb-5 fs-5 font-size-md">Gain insights into your crops' health with advanced monitoring. Our system analyzes satellite data and weather patterns to help you track growth and optimize fields. Make informed decisions for productive fields every season.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+            <!-- Right Login Form Section -->
+            <div class="col-md-6 d-flex align-items-center justify-content-center login-panel">
+                <div class="login-form w-75 p-0">
+                    <!-- Tab Navigation for Sign Up and Sign In -->
+                    <ul class="nav nav-tabs" id="loginTab" role="tablist">
+                        <li class="nav-item w-50" role="presentation">
+                            <button class="nav-link active w-100 rounded-top-left" id="signIn-tab" data-bs-toggle="tab" data-bs-target="#signIn" type="button" role="tab">Sign In</button>
+                        </li>
+                        <li class="nav-item w-50" role="presentation">
+                            <button class="nav-link w-100 rounded-top-right" id="signUp-tab" data-bs-toggle="tab" data-bs-target="#signUp" type="button" role="tab">Sign Up</button>
+                        </li>
+                    </ul>
 
-                <!-- Right Login Form Section -->
-                <div class="col-md-6 d-flex align-items-center justify-content-center login-panel">
-                    <div class="login-form w-75 p-0">
-                        <!-- Tab Navigation for Sign Up and Sign In -->
-                        <ul class="nav nav-tabs" id="loginTab" role="tablist">
-                            <li class="nav-item w-50" role="presentation">
-                                <button class="nav-link active w-100 rounded-top-left" id="signIn-tab" data-bs-toggle="tab" data-bs-target="#signIn" type="button" role="tab">Sign In</button>
-                            </li>
-                            <li class="nav-item w-50" role="presentation">
-                                <button class="nav-link w-100 rounded-top-right" id="signUp-tab" data-bs-toggle="tab" data-bs-target="#signUp" type="button" role="tab">Sign Up</button>
-                            </li>
-                        </ul>
+                    <!-- Tab Content for Sign In and Sign Up -->
+                    <div class="tab-content" id="loginTabContent">
+                        <!-- Sign In Tab -->
+                        <div class="tab-pane fade show active p-5" id="signIn" role="tabpanel" aria-labelledby="signIn-tab">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label font-size-md">Email</label>
+                                    <input type="email" class="form-control font-size-md" id="email" placeholder="example@gmail.com" required>
+                                </div>
+                                <div class="mb-4 position-relative">
+                                    <label for="password" class="form-label font-size-md">Password</label>
+                                    <a href="#" class="text-success forgot-password font-size-md text-success">Forgot Password?</a>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <button id="btn-signIn" type="submit" class="btn btn-success btn-success w-100">Sign In</button>
+                            </form>
+                        </div>
 
-                        <!-- Tab Content for Sign In and Sign Up -->
-                        <div class="tab-content" id="loginTabContent">
-                            <!-- Sign In Tab -->
-                            <div class="tab-pane fade show active p-5" id="signIn" role="tabpanel" aria-labelledby="signIn-tab">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label font-size-md">Email</label>
-                                        <input type="email" class="form-control font-size-md" id="email" placeholder="example@gmail.com" required>
-                                    </div>
-                                    <div class="mb-4 position-relative">
-                                        <label for="password" class="form-label font-size-md">Password</label>
-                                        <a href="#" class="text-success forgot-password font-size-md text-success">Forgot Password?</a>
-                                        <input type="password" class="form-control" id="password" required>
-                                    </div>
-                                    <button id="btn-signIn" type="submit" class="btn btn-success btn-success w-100">Sign In</button>
-                                </form>
-                            </div>
+                        <!-- Sign Up Tab -->
+                        <div class="tab-pane fade p-5" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="signupEmail" class="form-label font-size-md">Email</label>
+                                    <input type="email" class="form-control font-size-md" id="signupEmail" placeholder="example@gmail.com" required>
+                                </div>
 
-                            <!-- Sign Up Tab -->
-                            <div class="tab-pane fade p-5" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="signupEmail" class="form-label font-size-md">Email</label>
-                                        <input type="email" class="form-control font-size-md" id="signupEmail" placeholder="example@gmail.com" required>
-                                    </div>
+                                <!-- Role Dropdown -->
+                                <div class="mb-3">
+                                    <label for="role" class="form-label font-size-md">Role</label>
+                                    <select class="form-select font-size-md" id="role" required>
+                                        <option value="" selected disabled>Select your role</option>
+                                        <option value="manager">MANAGER</option>
+                                        <option value="admin">ADMINISTRATIVE</option>
+                                        <option value="scientist">SCIENTIST</option>
+                                        <option value="other">OTHER</option>
+                                    </select>
+                                </div>
 
-                                    <!-- Role Dropdown -->
-                                    <div class="mb-3">
-                                        <label for="role" class="form-label font-size-md">Role</label>
-                                        <select class="form-select font-size-md" id="role" required>
-                                            <option value="" selected disabled>Select your role</option>
-                                            <option value="manager">MANAGER</option>
-                                            <option value="admin">ADMINISTRATIVE</option>
-                                            <option value="scientist">SCIENTIST</option>
-                                            <option value="other">OTHER</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="signupPassword" class="form-label font-size-md">Password</label>
-                                        <input type="password" class="form-control" id="signupPassword" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="confirmPassword" class="form-label font-size-md">Confirm Password</label>
-                                        <input type="password" class="form-control" id="confirmPassword" required>
-                                    </div>
-                                    <button id="btn-signUp" type="submit" class="btn btn-success w-100">Sign Up</button>
-                                </form>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="signupPassword" class="form-label font-size-md">Password</label>
+                                    <input type="password" class="form-control" id="signupPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label font-size-md">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                </div>
+                                <button id="btn-signUp" type="submit" class="btn btn-success w-100">Sign Up</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    </main>
+    </div>
+</section>
+</main>
 </body>
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

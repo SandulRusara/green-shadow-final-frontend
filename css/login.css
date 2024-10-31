@@ -8,304 +8,64 @@
 /*    z-index: 1;*/
 /*}*/
 
-/*.text-content {*/
-/*    position: relative;*/
-/*    z-index: 2;*/
-/*}*/
 
-/*.login-form {*/
-/*    padding: 40px;*/
-/*    border: 1px solid gray;*/
-/*    border-radius: 15px;*/
-/*    background-color: white;*/
-/*}*/
-
-/*.nav-tabs {*/
-/*    height: 50px; !* Adjust the height as needed *!*/
-/*    border-bottom: 1px solid gray; !* Change the color here *!*/
-/*}*/
-
-/*.nav-tabs .nav-link {*/
-/*    height: 100%;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    color: black;*/
-/*    border: none;*/
-/*    border-radius: 0;*/
-/*}*/
-
-/*.nav-tabs .nav-link.active {*/
-/*    background-color: whitesmoke;*/
-/*    color: black;*/
-/*}*/
-
-/*.forgot-password {*/
-/*    float: right;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*.rounded-top-left {*/
-/*    border-top-left-radius: 17px !important;*/
-/*}*/
-
-/*.rounded-top-right {*/
-/*    border-top-right-radius: 17px !important;*/
-/*}*/
-
-/*.font-size-md{*/
-/*    font-size: 0.85rem !important;*/
-/*}*/
-
-/*.font-size-lg{*/
-/*    font-size: 2rem !important;*/
-/*}*/
-
-/*.btn-success:hover {*/
-/*    background-color: #0A6847;*/
-/*}*/
-
-/*.text-success:hover{*/
-/*    color: #0A6847 !important;*/
-/*}*/
-
-/* General Reset*/
-/** {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    box-sizing: border-box;*/
-/*    font-family: 'Arial', sans-serif;*/
-/*}*/
-
-/*body, html {*/
-/*    height: 100%;*/
-/*    background-color: white;*/
-/*}*/
-
-/*.container-fluid {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/* Image Side Styling*/
-/*.image-side {*/
-/*    *background-image: url('assets/picture/img.icons8.png');*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    position: relative;*/
-/*    color: #fff;*/
-/*}*/
-
-/*.image-side .overlay {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    bottom: 0;*/
-/*    background: rgba(0, 0, 0, 0.5);*/
-/*}*/
-
-/*.image-side .text-content {*/
-/*    position: relative;*/
-/*    z-index: 1;*/
-/*    padding: 2rem;*/
-/*    text-align: left;*/
-/*}*/
-
-/*.image-side p {*/
-/*    font-size: 1.1rem;*/
-/*    line-height: 1.6;*/
-/*    margin: 0 0 1rem;*/
-/*}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Login Panel Styling */
-.login-panel {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+.text-content {
+    position: relative;
+    z-index: 2;
 }
 
-.login-form h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 1.5rem;
+.login-form {
+    padding: 40px;
+    border: 1px solid gray;
+    border-radius: 60px;
+    background-color: darkgray;
 }
 
-/* Tab Navigation Styling */
 .nav-tabs {
-    border-bottom: 2px solid #e9ecef;
-}
-
-.nav-tabs .nav-item {
-    width: 50%;
+    height: 50px; /* Adjust the height as needed */
+    border-bottom: 1px solid gray; /* Change the color here */
 }
 
 .nav-tabs .nav-link {
-    background-color: #f9f9f9;
-    color: #333;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
     border: none;
-    font-size: 1.1rem;
-    padding: 0.75rem;
-    transition: background-color 0.3s ease;
+    border-radius: 0;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #4CAF50;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 8px 8px 0 0;
-}
-
-/* Form Styling */
-.form-label {
-    font-size: 0.9rem;
-    color: #333;
-}
-
-.form-control {
-    font-size: 0.95rem;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-}
-
-.form-select {
-    padding: 0.6rem;
-    border-radius: 6px;
-}
-
-/* Button Styling */
-.btn {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.75rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-success {
-    background-color: #4CAF50;
+    background-color: green;
     color: white;
-    border: none;
-}
-
-.btn-success:hover {
-    background-color: #43a047;
 }
 
 .forgot-password {
-    color: #4CAF50;
+    float: right;
     text-decoration: none;
-    font-size: 0.85rem;
 }
 
-.forgot-password:hover {
-    text-decoration: underline;
+.rounded-top-left {
+    border-top-left-radius: 17px !important;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .image-side {
-        display: none;
-    }
-    .login-panel {
-        width: 100%;
-        padding: 1.5rem;
-    }
+.rounded-top-right {
+    border-top-right-radius: 17px !important;
+}
 
+.font-size-md{
+    font-size: 0.85rem !important;
+}
 
-/*.overlay {*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    height: 50%;*/
-/*    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));*/
-/*    z-index: 1;*/
-/*}*/
+.font-size-lg{
+    font-size: 2rem !important;
+}
 
-/*.text-content {*/
-/*    position: relative;*/
-/*    z-index: 2;*/
-/*}*/
+.btn-success:hover {
+    background-color: forestgreen;
+}
 
-/*.login-form {*/
-/*    padding: 40px;*/
-/*    border: 1px solid gray;*/
-/*    border-radius: 15px;*/
-/*    background-color: #1e1e1e;*/
-/*}*/
-
-/*.nav-tabs {*/
-/*    height: 50px; !* Adjust the height as needed *!*/
-/*    border-bottom: 1px solid gray; !* Change the color here *!*/
-/*}*/
-
-/*.nav-tabs .nav-link {*/
-/*    height: 100%;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    color: white;*/
-/*    border: none;*/
-/*    border-radius: 0;*/
-/*}*/
-
-/*.nav-tabs .nav-link.active {*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*}*/
-
-/*.forgot-password {*/
-/*    float: right;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*.rounded-top-left {*/
-/*    border-top-left-radius: 17px !important;*/
-/*}*/
-
-/*.rounded-top-right {*/
-/*    border-top-right-radius: 17px !important;*/
-/*}*/
-
-/*.font-size-md{*/
-/*    font-size: 0.85rem !important;*/
-/*}*/
-
-/*.font-size-lg{*/
-/*    font-size: 2rem !important;*/
-/*}*/
-
-/*.btn-success:hover {*/
-/*    background-color: #0A6847;*/
-/*}*/
-
-/*.text-success:hover{*/
-/*    color: #0A6847 !important;*/
+.text-success:hover{
+    color: green !important;
 }
