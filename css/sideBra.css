@@ -1,0 +1,44 @@
+/* Sidebar styling */
+.sidebar {
+    background-color: green;
+    color: white;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    border-right: 1px solid gray;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid gray;
+}
+.sidebar a:hover {
+    background-color: #0A6847; /* Optional hover color */
+}
+.sidebar .logout {
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    left: 5%;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+    }
+
+    .sidebar .logout {
+        margin-top: auto; /* Pushes the logout button to the bottom */
+        position: absolute;
+        bottom: -60px;
+        width: 40%;
+        left: 2%;
+    }
+}
