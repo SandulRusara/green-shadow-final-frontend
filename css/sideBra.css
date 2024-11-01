@@ -9,15 +9,43 @@
     width: 250px;
     border-right: 1px solid gray;
 }
+/*.sidebar a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    display: block;*/
+/*    padding: 15px;*/
+/*    border-bottom: 1px solid gray;*/
+/*}*/
+
+/*.sidebar a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    display: flex; !* Align icon and text horizontally *!*/
+/*    align-items: center; !* Center-align icon and text vertically *!*/
+/*    padding: 40px;*/
+/*    border-bottom: 1px solid gray;*/
+/*}*/
+
 .sidebar a {
     color: white;
     text-decoration: none;
-    display: block;
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    padding: 40px;
     border-bottom: 1px solid gray;
+    transition: transform 0.3s ease; /* Smooth slide effect */
 }
+
 .sidebar a:hover {
-    background-color: #0A6847; /* Optional hover color */
+    transform: translateX(10px); /* Slide right on hover */
+}
+
+.sidebar a i {
+    margin-right: 10px; /* Adds space between icon and text */
+}
+
+.sidebar a:hover {
+    background-color: yellowgreen; /* Optional hover color */
 }
 .sidebar .logout {
     margin-bottom: 10px;
@@ -42,3 +70,28 @@
         left: 2%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
