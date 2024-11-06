@@ -25,9 +25,19 @@ body {
 }
 
 body {
-  background-color: darkolivegreen;
+  background-color: dimgrey;
   color: #fff;
+  animation: fadeIn 2s ease;
 }
+@keyframes fadeIn {
+  50% {
+    background-color: transparent; /* Start with transparent */
+  }
+  100% {
+    background-color: gray; /* End with blue */
+  }
+}
+
 
 /**
  * Render the `main` element consistently in IE.
