@@ -1,13 +1,12 @@
-/*.overlay {*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    height: 50%;*/
-/*    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));*/
-/*    z-index: 1;*/
-/*}*/
-
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
 
 .text-content {
     position: relative;
@@ -17,13 +16,13 @@
 .login-form {
     padding: 40px;
     border: 1px solid gray;
-    border-radius: 60px;
-    background-color: lightgray;
+    border-radius: 15px;
+    background-color: #1e1e1e;
 }
 
 .nav-tabs {
     height: 50px; /* Adjust the height as needed */
-    border-bottom: 1px solid greenyellow; /* Change the color here */
+    border-bottom: 1px solid gray; /* Change the color here */
 }
 
 .nav-tabs .nav-link {
@@ -37,7 +36,7 @@
 }
 
 .nav-tabs .nav-link.active {
-    background-color: green;
+    background-color: black;
     color: white;
 }
 
@@ -63,9 +62,9 @@
 }
 
 .btn-success:hover {
-    background-color: forestgreen;
+    background-color: #0A6847;
 }
 
 .text-success:hover{
-    color: green !important;
+    color: #0A6847 !important;
 }
