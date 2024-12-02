@@ -15,14 +15,14 @@
 
 .login-form {
     padding: 40px;
-    border: 1px solid gray;
+    border: 5px solid black;
     border-radius: 15px;
-    background-color: #1e1e1e;
+    background-color:darkslategrey;
 }
 
 .nav-tabs {
     height: 50px; /* Adjust the height as needed */
-    border-bottom: 1px solid gray; /* Change the color here */
+    border-bottom: 3px solid gray; /* Change the color here */
 }
 
 .nav-tabs .nav-link {
@@ -36,7 +36,7 @@
 }
 
 .nav-tabs .nav-link.active {
-    background-color: black;
+    background-color: darkgreen;
     color: white;
 }
 

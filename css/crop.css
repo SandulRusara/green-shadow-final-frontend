@@ -2,6 +2,7 @@
     width: 100%;
     height: 250px; /* Set the height for the image area */
     overflow: hidden;
+
 }
 
 .card-image-container img {
