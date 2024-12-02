@@ -46,7 +46,7 @@
 
 /* Sidebar styling */
 .sidebar {
-    background-color: darkgreen;
+    background-color: darkslategray;
     color: white;
     min-height: 100vh;
     position: fixed;
@@ -85,7 +85,7 @@
     color: white;
     text-decoration: none;
     display: block;
-    padding: 15px;
+    padding: 40px;
     border-bottom: 1px solid gray;
     width: 100%;
     text-align: center;
@@ -93,7 +93,7 @@
 }
 
 .sidebar a:hover {
-    background-color: #0A6847;
+    background-color:olivedrab;
     transform: translateX(10px);
 }
 
