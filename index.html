@@ -20,14 +20,36 @@
     <link href="css/vehicle.css" rel="stylesheet">
     <link href="css/crop.css" rel="stylesheet">
     <link href="css/monitoring.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .image-side {
-            background-image: url('assets/picture/download.jpg');
+            /*background-image: url('assets/picture/download.jpg');*/
             background-size: cover;
             background-position: center;
             min-height: 100vh;
             position: relative;
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            padding: 20px;
+        }
+        .chart-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+
     </style>
 </head>
 <body>
@@ -67,9 +89,9 @@
                         <div class="login-form w-75 p-0">
                             <!-- Tab Navigation for Sign Up and Sign In -->
                             <ul class="nav nav-tabs" id="loginTab" role="tablist">
-                                <li class="nav-item w-50" role="presentation">
-                                    <button class="nav-link active w-100 rounded-top-left" id="signIn-tab" data-bs-toggle="tab" data-bs-target="#signIn" type="button" role="tab">Sign In</button>
-                                </li>
+<!--                                <li class="nav-item w-50" role="presentation">-->
+<!--                                    <button class="nav-link active w-100 rounded-top-left" id="signIn-tab" data-bs-toggle="tab" data-bs-target="#signIn" type="button" role="tab">Sign In</button>-->
+<!--                                </li>-->
                                 <li class="nav-item w-50" role="presentation">
                                     <button class="nav-link w-100 rounded-top-right" id="signUp-tab" data-bs-toggle="tab" data-bs-target="#signUp" type="button" role="tab">Sign Up</button>
                                 </li>
@@ -89,41 +111,41 @@
                                             <a href="#" class="text-success forgot-password font-size-md text-success">Forgot Password?</a>
                                             <input type="password" class="form-control" id="password">
                                         </div>
-                                        <button id="btn-signIn" type="button" class="btn btn-success btn-success w-100">Sign In</button>
+                                        <button id="btn-signIn" type="button" class="btn btn-success  w-100">Sign In</button>
                                     </form>
                                 </div>
 
                                 <!-- Sign Up Tab -->
-                                <div class="tab-pane fade p-5" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="signupEmail" class="form-label font-size-md">Email</label>
-                                            <input type="email" class="form-control font-size-md" id="signupEmail" placeholder="example@gmail.com">
-                                        </div>
+<!--                                <div class="tab-pane fade p-5" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">-->
+<!--                                    <form>-->
+<!--                                        <div class="mb-3">-->
+<!--                                            <label for="signupEmail" class="form-label font-size-md">Email</label>-->
+<!--                                            <input type="email" class="form-control font-size-md" id="signupEmail" placeholder="example@gmail.com">-->
+<!--                                        </div>-->
 
-                                        <!-- Role Dropdown -->
-                                        <div class="mb-3">
-                                            <label for="role" class="form-label font-size-md">Role</label>
-                                            <select class="form-select font-size-md" id="role">
-                                                <option value="" selected disabled>Select your role</option>
-                                                <option value="manager">MANAGER</option>
-                                                <option value="admin">ADMINISTRATIVE</option>
-                                                <option value="scientist">SCIENTIST</option>
-                                                <option value="other">OTHER</option>
-                                            </select>
-                                        </div>
+<!--                                        &lt;!&ndash; Role Dropdown &ndash;&gt;-->
+<!--                                        <div class="mb-3">-->
+<!--                                            <label for="role" class="form-label font-size-md">Role</label>-->
+<!--                                            <select class="form-select font-size-md" id="role">-->
+<!--                                                <option value="" selected disabled>Select your role</option>-->
+<!--                                                <option value="manager">MANAGER</option>-->
+<!--                                                <option value="admin">ADMINISTRATIVE</option>-->
+<!--                                                <option value="scientist">SCIENTIST</option>-->
+<!--                                                <option value="other">OTHER</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
 
-                                        <div class="mb-3">
-                                            <label for="signupPassword" class="form-label font-size-md">Password</label>
-                                            <input type="password" class="form-control" id="signupPassword">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="confirmPassword" class="form-label font-size-md">Confirm Password</label>
-                                            <input type="password" class="form-control" id="confirmPassword">
-                                        </div>
-                                        <button id="btn-signUp" type="submit" class="btn btn-success w-100">Sign Up</button>
-                                    </form>
-                                </div>
+<!--                                        <div class="mb-3">-->
+<!--                                            <label for="signupPassword" class="form-label font-size-md">Password</label>-->
+<!--                                            <input type="password" class="form-control" id="signupPassword">-->
+<!--                                        </div>-->
+<!--                                        <div class="mb-3">-->
+<!--                                            <label for="confirmPassword" class="form-label font-size-md">Confirm Password</label>-->
+<!--                                            <input type="password" class="form-control" id="confirmPassword">-->
+<!--                                        </div>-->
+<!--                                        <button id="btn-signUp" type="submit" class="btn btn-success w-100">Sign Up</button>-->
+<!--                                    </form>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -131,7 +153,67 @@
             </div>
         </section>
         <section id="sections-wrapper" class="section-container m-3 p-3">
-            <section id="dashboard-sec"><p>welcome dashboard</p></section>
+            <section id="dashboard-sec"><p>welcome dashboard
+
+                <section class="dashboard">
+                    <h1>Dashboard</h1>
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </section>
+
+                <script>
+                    // Sample data for the chart
+                    const data = {
+                        labels: ['January', 'February', 'March', 'April', 'May'],
+                        datasets: [{
+                            label: 'Sales Data',
+                            data: [120, 190, 300, 500, 200],
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 99, 132, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 99, 132, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // Configuration for the chart
+                    const config = {
+                        type: 'bar',
+                        data: data,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    };
+
+                    // Render the chart
+                    const myChart = new Chart(
+                        document.getElementById('myChart'),
+                        config
+                    );
+                </script>
+
+            </p></section>
             <section id="field-sec">
                 <div class="container mt-4">
                     <!-- Search bar -->
@@ -1708,4 +1790,5 @@
 <script type="module" src="controller/StaffController.js"></script>
 <script type="module" src="controller/VehicleController.js"></script>
 <script type="module" src="controller/EquipmentController.js"></script>
+<script type="module" src="controller/signIn.js"></script>
 </html>

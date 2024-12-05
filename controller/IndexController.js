@@ -21,23 +21,51 @@ const loadCropCard = new LoadCards();
 const allStaffMember = new LoadAllStaffMember();
 const loadAllEquipment = new LoadAllEquipment();
 const loadAllLogs = new LoadAllLogs();
-allStaffMember.loadAllMembers();
-loadFieldCard.loadAllFieldCard();
-loadCropCard.loadAllCropCard();
-loadAllEquipment.loadAllEquDetails();
-loadAllLogs.loadAllLogsDetails();
+// allStaffMember.loadAllMembers();
+// loadFieldCard.loadAllFieldCard();
+// loadCropCard.loadAllCropCard();
+// loadAllEquipment.loadAllEquDetails();
+// loadAllLogs.loadAllLogsDetails();
 
 $('#btn-signIn').on('click',function (){
-    $('#sections-wrapper').css({display:'block'});
-    $('#header-sec').css({display: 'block'});
-    $('#dashboard-sec').css({display:'block'});
-    $('#signInAndSignUp-sec').css({display: 'none'});
-    $('#field-sec').css({display:'none'});
-    $('#crops-sec').css({display:'none'});
-    $('#staff-sec').css({display:'none'});
-    $('#monitoring-log-sec').css({display:'none'});
-    $('#vehicle-sec').css({display:'none'});
-    $('#equipment-sec').css({display:'none'});
+    event.preventDefault(); // Prevent the form from submitting traditionally
+
+    const email = $('#email').val();
+    const password = $('#password').val();
+
+    const signInDTO = {
+        email:email,
+        password:password
+    }
+    console.log("SIGN IN CALLED")
+
+    $.ajax({
+        url: 'http://localhost:5058/greenShadowBackend/api/v1/auth/signIn',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(signInDTO),
+        success: function (response) {
+            console.log("dassda"+response)
+            localStorage.setItem('jwtToken', response.token);
+            console.log(response.token)
+            $('#sections-wrapper').css({display:'block'});
+            $('#header-sec').css({display: 'block'});
+            $('#dashboard-sec').css({display:'block'});
+            $('#signInAndSignUp-sec').css({display: 'none'});
+            $('#field-sec').css({display:'none'});
+            $('#crops-sec').css({display:'none'});
+            $('#staff-sec').css({display:'none'});
+            $('#monitoring-log-sec').css({display:'none'});
+            $('#vehicle-sec').css({display:'none'});
+            $('#equipment-sec').css({display:'none'});
+        },
+        error: function (xhr) {
+            // Display error message
+            const errorMessage = xhr.responseJSON ? xhr.responseJSON.message : "Login failed. Try again.";
+            $('#responseMessage').text(errorMessage).css("color", "red").show();
+        }
+    });
+
 });
 
 $('#btn-logout').on('click',function (){

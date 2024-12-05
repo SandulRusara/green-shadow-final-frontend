@@ -82,6 +82,9 @@ $('#addFieldButtonInStaff').on('click',(e)=>{
                 url: "http://localhost:5058/greenShadowBackend/api/v1/staff",
                 type: "POST",
                 contentType: "application/json",
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 data: JSON.stringify(staffDTO),
                 success: function () {
                     const allMember = new LoadAllStaffMember();
@@ -235,6 +238,9 @@ $('#updateMemberButton').on('click',function (){
                 url: `http://localhost:5058/greenShadowBackend/api/v1/staff/${memberCode}`, // Use the vehicleId from the clicked row
                 type: 'PUT',
                 contentType: 'application/json',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 data: JSON.stringify(staffDTO),
                 success: function(response) {
                     resetForm("#updateStaffForm","#updateField","#updateVehicle","#updateEquipment","#additionalStaffEquipmentUpdate","#additionalStaffVehicleUpdate","#additionalStaffFieldUpdate");
@@ -304,6 +310,9 @@ $('#confirmDeleteYes').on('click', function () {
     $.ajax({
         url: `http://localhost:5058/greenShadowBackend/api/v1/staff/${index}`,
         type: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+        },
         success: function () {
             const loadAllStaffMember = new LoadAllStaffMember();
             loadAllStaffMember.loadAllMembers();
@@ -466,6 +475,9 @@ export class LoadAllStaffMember {
             $.ajax({
                 url: "http://localhost:5058/greenShadowBackend/api/v1/staff",
                 type: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (staffMembers) {
                     staffMembers.forEach(staffMember => {
                         const staffDetail = new Staff(

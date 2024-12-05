@@ -73,6 +73,9 @@ $('#addEquipmentButton').on('click',(e)=>{
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(equipmentDTO),
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function () {
                     const loadAllEquipment = new LoadAllEquipment();
                     loadAllEquipment.loadAllEquDetails().then(equ =>{
@@ -193,6 +196,9 @@ $('#EquipmentButtonUpdate').on('click', () => {
                 type: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify(equipmentDTO),
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function(response) {
                     $('#updateEquipment-modal').modal('hide');
                     const loadAllEquipment = new LoadAllEquipment();
@@ -247,6 +253,9 @@ $('#confirmEquDeleteYes').on('click', function () {
     $.ajax({
         url: `http://localhost:5058/greenShadowBackend/api/v1/equipment/${index}`,
         type: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+        },
         success: function () {
             const loadAllEquipment = new LoadAllEquipment();
             loadAllEquipment.loadAllEquDetails();
@@ -353,6 +362,9 @@ export class LoadAllEquipment{
             $.ajax({
                 url: "http://localhost:5058/greenShadowBackend/api/v1/equipment",
                 type: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (equipment) {
                     equipment.forEach(equ => {
                         const equDetail = new Equipment(

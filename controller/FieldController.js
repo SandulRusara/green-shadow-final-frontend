@@ -11,6 +11,7 @@ $('#fieldForm').on('submit', function (e) {
     let cropIds = [];
     let staffIds = [];
 
+
     // Collect all crop IDs from the main select and additional fields
     $('#filed-cropId').val() && cropIds.push($('#filed-cropId').val()); // Add main select value if not empty
     $('#additionalCrop select').each(function () {
@@ -38,7 +39,7 @@ $('#fieldForm').on('submit', function (e) {
     formData.append("extentSize", extentSize);
     formData.append("fieldImage1", fieldImageFile1);
     formData.append("fieldImage2", fieldImageFile2);
-    formData.append("staffList", new Blob([JSON.stringify(staffIds)], { type: "application/json" }));
+    formData.append("staffList", new Blob([JSON.stringify(staffIds,)], { type: "application/json" }));
     formData.append("cropList", new Blob([JSON.stringify(cropIds)], { type: "application/json" }));
 
     Swal.fire({
@@ -50,11 +51,14 @@ $('#fieldForm').on('submit', function (e) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "http://localhost:5058/greenShadowBackend/api/v1/fields",
+                url: "http://localhost:5058/greenShadowBackend/api/v1/field",
                 type: "POST",
                 data: formData,
                 processData: false,
                 contentType: false,
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (response) {
                     let loadFieldCard = new LoadFieldCard();
                     let loadCropList = new LoadSelectedFieldWithCrop();
@@ -261,11 +265,14 @@ $("#updateFieldButton").on("click", async function() {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: `http://localhost:5058/greenShadowBackend/api/v1/fields/${fieldCode}`,
+                url: `http://localhost:5058/greenShadowBackend/api/v1/field/${fieldCode}`,
                 type: "PUT",
                 data: formData,
                 processData: false,
                 contentType: false,
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (response) {
                     $('#updateCropForm')[0].reset();
                     $('#previewCrop').addClass('d-none');
@@ -327,8 +334,11 @@ $(document).ready(function() {
         const cardId = $(this).data('field-code');
 
         $.ajax({
-            url: `http://localhost:5058/greenShadowBackend/api/v1/fields/${cardId}`,
+            url: `http://localhost:5058/greenShadowBackend/api/v1/field/${cardId}`,
             type: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+            },
             success: function () {
                 const loadFieldCard = new LoadFieldCard();
                 loadFieldCard.loadAllFieldCard();
@@ -375,8 +385,11 @@ export class LoadFieldCard {
     loadAllFieldCard() {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: "http://localhost:5058/greenShadowBackend/api/v1/fields",
+                url: "http://localhost:5058/greenShadowBackend/api/v1/field",
                 type: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (fields) {
                     $("#fieldCard").empty();
                     const fieldCodes = fields.map(field => field.fieldCode);
@@ -396,7 +409,7 @@ export class LoadFieldCard {
                                             </div>
                                             <div id="img2" class="carousel-item">
                                                 <img src="${imageData2}" id="image2" class="d-block w-100 fixed-image image-preview2" alt="Field Image 2">
-                                            </div>            
+                                            </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -420,9 +433,9 @@ export class LoadFieldCard {
                                             <button class="btn btn-success flex-grow-1 me-2 update-button" data-field-code="${field.fieldCode}">Update</button>
                                             <button type="button" class="btn btn-danger flex-grow-1 delete-button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-field-code="${field.fieldCode}">Delete</button>
                                         </div>
-                                    </div>                            
-                                </div> 
-                            </div>       
+                                    </div>
+                                </div>
+                            </div>
                         `;
                         $('#fieldCard').append(newFieldCard);
                     });
@@ -444,9 +457,12 @@ export class LoadSelectedFieldWithCrop{
         const fieldId = lastCode; // Replace with the actual fieldId you want to retrieve
         console.log("pop code : " , fieldId)
         $.ajax({
-            url: `http://localhost:5058/greenShadowBackend/api/v1/fields/${fieldId}`,
+            url: `http://localhost:5058/greenShadowBackend/api/v1/field/${fieldId}`,
             type: "GET",
             contentType: "application/json",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+            },
             success: function(data) {
                 console.log("Field data:", data);
                 // Process the data as needed
@@ -488,3 +504,4 @@ function clearFieldForm() {
     $('#preview1').addClass('d-none').attr('src', '');
     $('#preview2').addClass('d-none').attr('src', '');
 }
+

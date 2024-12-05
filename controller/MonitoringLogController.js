@@ -64,6 +64,9 @@ let cardCount = 0;
                     data: formData,
                     processData: false,
                     contentType: false,
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                    },
                     success: function (response) {
                         Swal.fire("Saved!", "", "success");
                         $('#logForm')[0].reset();
@@ -221,6 +224,9 @@ let cardCount = 0;
                     data: formData,
                     processData: false,
                     contentType: false,
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                    },
                     success: function (response) {
                         // Reset the form
                         $('#logForm')[0].reset();
@@ -263,6 +269,9 @@ let cardCount = 0;
         $.ajax({
             url: `http://localhost:5058/greenShadowBackend/api/v1/logs/${cardId}`,
             type: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+            },
             success: function () {
                 Swal.fire('Deleted!', 'The Logs card has been deleted.', 'success');
                 const loadLogCard = new LoadAllLogs();
@@ -419,6 +428,9 @@ let cardCount = 0;
                 $.ajax({
                     url: "http://localhost:5058/greenShadowBackend/api/v1/logs",
                     type: "GET",
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                    },
                     success: function (logs) {
                         $("#logCard").empty();
                         const logCodes = logs.map(log => log.logCode);

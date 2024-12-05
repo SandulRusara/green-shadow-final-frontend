@@ -49,6 +49,9 @@ $('#cropForm').on('submit', function (e) {
                 data: formData,
                 processData: false,
                 contentType: false,
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (response) {
                     $('#cropForm')[0].reset();
                     $('#previewCrop').addClass('d-none');
@@ -181,6 +184,9 @@ $('#updateFieldModalButton').on('click',async function (){
                 data: formData,
                 processData: false,
                 contentType: false,
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (response) {
                     $('#updateCropForm')[0].reset();
                     $('#previewCrop').addClass('d-none');
@@ -242,6 +248,9 @@ $(document).ready(function() {
         $.ajax({
             url: `http://localhost:5058/greenShadowBackend/api/v1/crops/${cardId}`,
             type: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+            },
             success: function () {
                 const loadCropCard = new LoadCards();
                 loadCropCard.loadAllCropCard();
@@ -272,6 +281,9 @@ export class LoadCards {
             $.ajax({
                 url: "http://localhost:5058/greenShadowBackend/api/v1/crops",
                 type: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                },
                 success: function (crops) {
                     $("#cropCard").empty();
                     const cropCodes = crops.map(crop => crop.cropCode);

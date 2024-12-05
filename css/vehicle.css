@@ -1,25 +1,25 @@
 /* Custom styles for input fields in the modal */
 #vehicle-modal .form-control {
-    background-color: #333 !important; /* Dark background */
+    background-color: olivedrab !important; /* Dark background */
     color: white !important; /* White text color */
 }
 
 /* Ensuring the styles persist */
 #vehicle-modal .form-control:focus {
-    background-color: #333 !important; /* Maintain dark background on focus */
+    background-color: olivedrab !important; /* Maintain dark background on focus */
     color: white !important; /* Maintain white text color on focus */
     box-shadow: none; /* Remove any shadow */
 }
 
 /* Custom styles for input fields in the modal */
 #updateVehicle-modal .form-control {
-    background-color: #333 !important; /* Dark background */
+    background-color: olivedrab !important; /* Dark background */
     color: white !important; /* White text color */
 }
 
 /* Ensuring the styles persist */
 #updateVehicle-modal .form-control:focus {
-    background-color: #333 !important; /* Maintain dark background on focus */
+    background-color: olivedrab !important; /* Maintain dark background on focus */
     color: white !important; /* Maintain white text color on focus */
     box-shadow: none; /* Remove any shadow */
 }
