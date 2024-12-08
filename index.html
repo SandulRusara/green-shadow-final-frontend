@@ -23,7 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .image-side {
-            /*background-image: url('assets/picture/download.jpg');*/
+            background-image: url('assets/picture/download.jpg');
             background-size: cover;
             background-position: center;
             min-height: 100vh;
@@ -40,7 +40,7 @@
         }
         .chart-container {
             width: 80%;
-            max-width: 600px;
+            max-width: 1000px;
             margin: 20px auto;
             text-align: center;
         }
@@ -89,9 +89,9 @@
                         <div class="login-form w-75 p-0">
                             <!-- Tab Navigation for Sign Up and Sign In -->
                             <ul class="nav nav-tabs" id="loginTab" role="tablist">
-<!--                                <li class="nav-item w-50" role="presentation">-->
-<!--                                    <button class="nav-link active w-100 rounded-top-left" id="signIn-tab" data-bs-toggle="tab" data-bs-target="#signIn" type="button" role="tab">Sign In</button>-->
-<!--                                </li>-->
+                                <li class="nav-item w-50" role="presentation">
+                                    <button class="nav-link active w-100 rounded-top-left" id="signIn-tab" data-bs-toggle="tab" data-bs-target="#signIn" type="button" role="tab">Sign In</button>
+                                </li>
                                 <li class="nav-item w-50" role="presentation">
                                     <button class="nav-link w-100 rounded-top-right" id="signUp-tab" data-bs-toggle="tab" data-bs-target="#signUp" type="button" role="tab">Sign Up</button>
                                 </li>
@@ -116,36 +116,36 @@
                                 </div>
 
                                 <!-- Sign Up Tab -->
-<!--                                <div class="tab-pane fade p-5" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">-->
-<!--                                    <form>-->
-<!--                                        <div class="mb-3">-->
-<!--                                            <label for="signupEmail" class="form-label font-size-md">Email</label>-->
-<!--                                            <input type="email" class="form-control font-size-md" id="signupEmail" placeholder="example@gmail.com">-->
-<!--                                        </div>-->
+                                <div class="tab-pane fade p-5" id="signUp" role="tabpanel" aria-labelledby="signUp-tab">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="email1" class="form-label font-size-md">Email</label>
+                                            <input type="email" class="form-control font-size-md" id="email1" placeholder="example@gmail.com">
+                                        </div>
 
-<!--                                        &lt;!&ndash; Role Dropdown &ndash;&gt;-->
-<!--                                        <div class="mb-3">-->
-<!--                                            <label for="role" class="form-label font-size-md">Role</label>-->
-<!--                                            <select class="form-select font-size-md" id="role">-->
-<!--                                                <option value="" selected disabled>Select your role</option>-->
-<!--                                                <option value="manager">MANAGER</option>-->
-<!--                                                <option value="admin">ADMINISTRATIVE</option>-->
-<!--                                                <option value="scientist">SCIENTIST</option>-->
-<!--                                                <option value="other">OTHER</option>-->
-<!--                                            </select>-->
-<!--                                        </div>-->
+                                        <!-- Role Dropdown -->
+                                        <div class="mb-3">
+                                            <label for="role" class="form-label font-size-md">Role</label>
+                                            <select class="form-select font-size-md" id="role">
+                                                <option value="" selected disabled>Select your role</option>
+                                                <option value="manager">MANAGER</option>
+                                                <option value="admin">ADMINISTRATIVE</option>
+                                                <option value="scientist">SCIENTIST</option>
+                                                <option value="other">OTHER</option>
+                                            </select>
+                                        </div>
 
-<!--                                        <div class="mb-3">-->
-<!--                                            <label for="signupPassword" class="form-label font-size-md">Password</label>-->
-<!--                                            <input type="password" class="form-control" id="signupPassword">-->
-<!--                                        </div>-->
-<!--                                        <div class="mb-3">-->
-<!--                                            <label for="confirmPassword" class="form-label font-size-md">Confirm Password</label>-->
-<!--                                            <input type="password" class="form-control" id="confirmPassword">-->
-<!--                                        </div>-->
-<!--                                        <button id="btn-signUp" type="submit" class="btn btn-success w-100">Sign Up</button>-->
-<!--                                    </form>-->
-<!--                                </div>-->
+                                        <div class="mb-3">
+                                            <label for="signupPassword" class="form-label font-size-md">Password</label>
+                                            <input type="password" class="form-control" id="signupPassword">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="confirmPassword" class="form-label font-size-md">Confirm Password</label>
+                                            <input type="password" class="form-control" id="confirmPassword">
+                                        </div>
+                                        <button id="btn-signUp" type="submit" class="btn btn-success w-100">Sign Up</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -153,17 +153,17 @@
             </div>
         </section>
         <section id="sections-wrapper" class="section-container m-3 p-3">
-            <section id="dashboard-sec"><p>welcome dashboard
+            <section id="dashboard-sec"><p><h2>07/12/2024</h2>
 
                 <section class="dashboard">
-                    <h1>Dashboard</h1>
+                    <h1>Welcome Dashboard</h1>
                     <div class="chart-container">
                         <canvas id="myChart"></canvas>
                     </div>
                 </section>
 
                 <script>
-                    // Sample data for the chart
+
                     const data = {
                         labels: ['January', 'February', 'March', 'April', 'May'],
                         datasets: [{
@@ -187,7 +187,7 @@
                         }]
                     };
 
-                    // Configuration for the chart
+
                     const config = {
                         type: 'bar',
                         data: data,
@@ -206,12 +206,14 @@
                         }
                     };
 
-                    // Render the chart
+
                     const myChart = new Chart(
                         document.getElementById('myChart'),
                         config
                     );
                 </script>
+
+
 
             </p></section>
             <section id="field-sec">
@@ -1790,5 +1792,5 @@
 <script type="module" src="controller/StaffController.js"></script>
 <script type="module" src="controller/VehicleController.js"></script>
 <script type="module" src="controller/EquipmentController.js"></script>
-<script type="module" src="controller/signIn.js"></script>
+<script type="module" src="controller/signUp.js"></script>
 </html>

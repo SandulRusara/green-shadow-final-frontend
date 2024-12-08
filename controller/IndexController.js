@@ -68,6 +68,50 @@ $('#btn-signIn').on('click',function (){
 
 });
 
+// $('#btn-signUp').on('click', function(event) {
+//     event.preventDefault();
+//
+//
+//     const email = $('#email1').val();
+//     const password = $('#signupPassword').val();
+//     const role = $('#role').val();
+//
+//
+//     const signUpDTO = {
+//         email: email,
+//         password: password,
+//         role: role
+//     };
+//
+//     console.log("SIGN UP CALLED");
+//
+//
+//     $.ajax({
+//         url: 'http://localhost:5058/greenShadowBackend/api/v1/auth/signUp',
+//         type: 'POST',
+//         contentType: 'application/json',
+//         data: JSON.stringify(signUpDTO),
+//         success: function(response) {
+//             console.log("Sign-up successful", response);
+//             localStorage.setItem('jwtToken', response.token);
+//             $('#sections-wrapper').css({display:'block'});
+//             $('#header-sec').css({display: 'block'});
+//             $('#dashboard-sec').css({display:'block'});
+//             $('#signInAndSignUp-sec').css({display: 'none'});
+//             $('#field-sec').css({display:'none'});
+//             $('#crops-sec').css({display:'none'});
+//             $('#staff-sec').css({display:'none'});
+//             $('#monitoring-log-sec').css({display:'none'});
+//             $('#vehicle-sec').css({display:'none'});
+//             $('#equipment-sec').css({display:'none'});
+//         },
+//         error: function(xhr) {
+//             const errorMessage = xhr.responseJSON ? xhr.responseJSON.message : "Sign-up failed. Please try again.";
+//             $('#responseMessage').text(errorMessage).css("color", "red").show();
+//         }
+//     });
+// });
+
 $('#btn-logout').on('click',function (){
     $('#signInAndSignUp-sec').css({display:'block'})
     $('#sections-wrapper').css({display:'none'});
